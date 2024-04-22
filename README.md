@@ -27,11 +27,15 @@ Citation
 ---
 If our method is useful for your research, please consider citing:
 ```
-@article{le2022animating, title={Animating still natural images using warping},
-author={Le, Thi-Ngoc-Hanh and Yeh, Chih-Kuo and Lin, Ying-Chi and Lee, Tong-Yee},
-journal={ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM)},
-year={2022},
-publisher={ACM New York, NY}
+@article{le2023animating,
+  title={Animating still natural images using warping},
+  author={Le, Thi-Ngoc-Hanh and Yeh, Chih-Kuo and Lin, Ying-Chi and Lee, Tong-Yee},
+  journal={ACM Transactions on Multimedia Computing, Communications and Applications},
+  volume={19},
+  number={1},
+  pages={1--24},
+  year={2023},
+  publisher={ACM New York, NY}
 }
 ```
 
