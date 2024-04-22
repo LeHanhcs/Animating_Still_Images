@@ -1,90 +1,40 @@
-## Intelligent scissor ##
+# Animating Still Natural Images Using Warping
+by [Thi-Ngoc-Hanh Le](https://lehanhcs.github.io/), Chih-Kuo Yeh, Ying-Chi Lin, and [Tong-Yee Lee]http://graphics.csie.ncku.edu.tw/. <br>
+[Computer Graphics Group](http://graphics.csie.ncku.edu.tw/) at National Cheng-Kung University, Taiwan. <br>
 
-Author : QIN Tong
+This resposity is the official implementation of our paper 'Animating Still Natural Images Using Warping'. This paper has been published on ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM); January 2023 <br>
 
-Function : Cut the image like photoshop, i.e.find some certain coutour on the image, and get the image with coutour and mask.
-		   
-Code: C++ in QT Creator
+Paper
+---
+* Published online on ACM TOMM, [link](https://dl.acm.org/doi/full/10.1145/3511894)
+* Project website: [link](http://graphics.csie.ncku.edu.tw/AnimatingImages/)
+* Demo video [youtube link](https://www.youtube.com/watch?v=IhFLmJkvTf0&t=2s)
 
-###Implementation###
+Introduction
+---
+This resposity is the official implementation of our method MAViNet. This paper has been published on ACM Transactions on Multimedia Computing, Communications, and Applications. <br>
+Unlike the realm of transferring oil painting style, our MAViNet solves the problems of transferring map art styles to video.
+![alt text](teaser_git-1.jpg)
 
-Data structures:	
-```c++
-struct Node{
-	double linkCost[8];
-	int state;
-	double totalCost;
-	Node *prevNode;
-	int column, row; 
+Requirements for Environment set up
+---
+* Eigen
+* Lib and Include files (download the .rar files in this resposity.)
+* Qt for UI design.
+* OpenCV
+
+Citation
+---
+If our method is useful for your research, please consider citing:
+```
+@article{le2022animating, title={Animating still natural images using warping},
+author={Le, Thi-Ngoc-Hanh and Yeh, Chih-Kuo and Lin, Ying-Chi and Lee, Tong-Yee},
+journal={ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM)},
+year={2022},
+publisher={ACM New York, NY}
 }
 ```
 
-Dijkstra's algorithm:
-```
-Begin:
-
-    initialize the priority queue pq to be empty;
-
-    initialize each node to the INITIAL state;
-
-    set the total cost of seed to be zero and make seed the root of the minimum path tree ( pointing to NULL ) ;
-
-    insert seed into pq;
-
-    while pq is not empty 
-
-        extract the node q with the minimum total cost in pq;
-
-        mark q as EXPANDED;
-
-        for each neighbor node r of q  
-
-            if  r has not been EXPANDED
-
-                if  r is still INITIAL
-
-                    make q be the predecessor of r ( for the the minimum path tree );
-
-                    set the total cost of r to be the sum of the total cost of q and link cost from q to r as its total cost;
-
-                    insert r in pq and mark it as ACTIVE;
-
-                else if  r is ACTIVE, e.g., in already in the pq 
-
-                    if the sum of the total cost of q and link cost between q and r is less than the total cost of r
-
-                        update q to be the predecessor of r ( for the minimum path tree );
-
-                        update the total cost of r in pq;
-
-	End
-```
-
-###Usage###
-1. Load one image;
-
-	![image](https://github.com/qintony/intelligent-scissor/blob/master/picture/main_ui.png)
-
-2. Click start;
-
-3. Click one point as fisrt seed;
-
-4. Move mouse, get the coutour as you want;
-
-	![image](https://github.com/qintony/intelligent-scissor/blob/master/picture/get_contour.png)
-
-5. Save image or mask.
-
-	![image](https://github.com/qintony/intelligent-scissor/blob/master/picture/get_mask.png)
-
-
-
-
-###Other things###
-In the debug mode, you can see the cost graph, min cost map and other useful debug infomation.
-
-![image](https://github.com/qintony/intelligent-scissor/blob/master/picture/cost_graph.png)
-	
-It's my first cv project in COMP 5212 HKUST. Thanks for prof CK Tang! 
-
-Any problem contact with me! qintonguav@gmail.com
+Contact
+---
+If you have any question, please email me: ngochanh.le1987@gmail.com or tonylee@mail.ncku.edu.tw (corresponding author)
